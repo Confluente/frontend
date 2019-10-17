@@ -93,6 +93,14 @@ a {
 
 }
 
+@media only screen and (min-width: 768px) {
+
+    /* make dropdown menu's hoverable on desktop */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
 
 /* -- (3) General classes -- */
 
