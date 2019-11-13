@@ -9,6 +9,6 @@ app.controller("pageManageController", ["$scope", "pages", function ($scope, pag
 module.exports = {
     url: "/manage/page/",
     parent: "/manage",
-    templateUrl: "/www/templates/pages/pageManage.html",
+    templateUrl: "/www/templates/page/pageManage.html",
     controller: "pageManageController"
 };

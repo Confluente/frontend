@@ -2,6 +2,7 @@
     <a class="btn btn-default" href="manage/user/create" ng-if="user.isAdmin">+ User</a>
     <!--<a class="btn btn-default" href="/group/create" ng-if="user.isAdmin">+ Group</a>-->
     <a class="btn btn-default" href="manage/activities/create" ng-if="user.canOrganize">+ Activity</a>
+    <a class="btn btn-default" href="manage/page/create" ng-if="user.isAdmin">+ Page</a>
 </div>
 
 <h1>Management Dashboard</h1>
@@ -89,6 +90,28 @@
                         <td>{{group.email}}</td>
                         <td>{{group.canOrganize}}</td>
                         <td><a ng-href="/manage/group/{{group.id}}">Edit</a></td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </uib-tab>
+
+        <uib-tab index="4" heading="Pages">
+            <div class="table-responsive">
+                <table class="table table-striped">
+
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="page in pages">
+                        <td>{{page.id}}</td>
+                        <th><a ng-href="{{page.url}}">{{page.title}}</a></th>
                     </tr>
                     </tbody>
 

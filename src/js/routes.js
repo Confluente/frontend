@@ -9,11 +9,11 @@ var routes = [
     require("./activities/view"),
     require("./activities/create"),
     require("./activities/edit"),
-    require("./page/view"),
-    require("./manage"),
-    require("./page/manage"),
     require("./page/create"),
-    require("./page/edit")
+    require("./page/manage"),
+    require("./page/edit"),
+    require("./page/view"),
+    require("./manage")
 ];
 
 module.exports = routes;
