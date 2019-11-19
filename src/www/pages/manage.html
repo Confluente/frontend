@@ -1,8 +1,8 @@
 <div class="pull-right">
-    <a class="btn btn-default" href="manage/user/create" ng-if="user.isAdmin">+ User</a>
+    <a class="btn btn-default" href="manage/create/user" ng-if="user.isAdmin">+ User</a>
     <!--<a class="btn btn-default" href="/group/create" ng-if="user.isAdmin">+ Group</a>-->
-    <a class="btn btn-default" href="manage/activities/create" ng-if="user.canOrganize">+ Activity</a>
-    <a class="btn btn-default" href="manage/page/create" ng-if="user.isAdmin">+ Page</a>
+    <a class="btn btn-default" href="manage/create/activity" ng-if="user.canOrganize">+ Activity</a>
+    <a class="btn btn-default" href="manage/create/page" ng-if="user.isAdmin">+ Page</a>
 </div>
 
 <h1>Management Dashboard</h1>
@@ -104,19 +104,31 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Url</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr ng-repeat="page in pages">
-                        <td>{{page.id}}</td>
-                        <th><a ng-href="{{page.url}}">{{page.title}}</a></th>
-                    </tr>
-                    </tbody>
+                      <tr class="table-row" ng-repeat="page in pages">
+                          <td>
+                              {{page.id}}
+                          </td>
+                          <th>
+                            {{page.title}}
+                          </th>
+                          <td>
+                              <a ng-href="{{page.url}}">/p/{{page.url}}</a>
+                          </td>
+                          <td>
+                              <a ng-href="/p/{{page.url}}/edit">Edit</a>
+                          </td>
+                      </tr>
+                      </tbody>
 
-                </table>
-            </div>
+                  </table>
+              </div>
         </uib-tab>
 
     </uib-tabset>

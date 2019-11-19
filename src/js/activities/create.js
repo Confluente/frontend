@@ -32,8 +32,8 @@ app.controller("activityCreateController", ["$scope", "activities", function ($s
 
 module.exports = {
     name: "New Activity",
-    url: "/manage/activities/create",
-    parent: "/manage/activities/",
+    url: "/manage/create/activity",
+    parent: "/manage",
     templateUrl: "/www/templates/activities/activityCreate.html",
     controller: "activityCreateController"
 };

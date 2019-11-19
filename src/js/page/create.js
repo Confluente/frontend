@@ -10,15 +10,15 @@ app.controller("pageCreateController", ["$scope", "pages", function ($scope, pag
         pages.create($scope.page).then(function (result) {
 
             $scope.loading = false;
-            window.location.href = "/page/" + $scope.page.url;
+            window.location.href = "/p/" + $scope.page.url;
         });
     };
 }]);
 
 module.exports = {
     name: "New Page",
-    url: "/manage/page/create",
-    parent: "/manage/page",
+    url: "/manage/create/page",
+    parent: "/manage",
     templateUrl: "/www/templates/page/pageCreate.html",
     controller: "pageCreateController"
 };

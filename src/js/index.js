@@ -6,6 +6,7 @@ require("angular-ui-bootstrap");
 var app = angular.module("confluente", ["ngRoute", "ngCookies", "ui.bootstrap", require('angular-sanitize')]);
 
 var routes = require("./routes");
+
 require("./services/serviceAuth");
 require("./services/serviceActivities");
 require("./services/servicePages");

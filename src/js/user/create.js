@@ -19,8 +19,8 @@ app.controller("userCreateController", ["$scope", "users", function ($scope, use
 
 module.exports = {
     name: "New User",
-    url: "/manage/user/create",
-    parent: "/manage/",
+    url: "/manage/create/user",
+    parent: "/manage",
     templateUrl: "/www/templates/user/userCreate.html",
     controller: "userCreateController"
 };

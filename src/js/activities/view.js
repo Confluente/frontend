@@ -11,7 +11,7 @@ app.controller("activityViewController", ["$scope", "$routeParams", "activities"
 module.exports = {
     name: "Activity",
     url: "/activities/:activityId",
-    parent: "/activities/",
+    parent: "/activities",
     templateUrl: "/www/templates/activities/activityDetails.html",
     controller: "activityViewController"
 };

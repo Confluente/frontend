@@ -1,5 +1,9 @@
 var app = angular.module("confluente");
 
+/* List of special defined pages.
+   When navigating to a URL, the URL will first be checked to match one of these HTML pages (in this order).
+   If no match occurs, the pages database will be searched. */
+
 var routes = [
     require("./home/view"),
     require("./user/create"),
@@ -10,10 +14,10 @@ var routes = [
     require("./activities/create"),
     require("./activities/edit"),
     require("./page/create"),
-    require("./page/manage"),
     require("./page/edit"),
+    require("./manage"),
+    require("./page/page"),
     require("./page/view"),
-    require("./manage")
 ];
 
 module.exports = routes;

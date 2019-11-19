@@ -1,6 +1,6 @@
 <div class="container">
     <h1>
-        <a class="btn btn-link" href="/manage/page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+        <a class="btn btn-link" href="/manage"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
         Edit page
     </h1>
 
@@ -8,7 +8,10 @@
 
         <div class="form-group">
             <label for="pageEdit-url">Url</label>
-            <input type="url" ng-model="page.url" class="form-control" id="pageEdit-url" disabled></input>
+            <div class="input-group">
+                <div class="input-group-addon">www.hsaconfluente.nl/p/</div>
+                <input type="url" ng-model="page.url" class="form-control" id="pageEdit-url" disabled></input>
+            </div>
         </div>
 
         <div class="form-group">

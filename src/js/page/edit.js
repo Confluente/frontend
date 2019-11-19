@@ -13,15 +13,15 @@ app.controller("pageEditController", ["$scope", "$routeParams", "pages", functio
         console.log($scope);
         pages.edit($scope.page).then(function (result) {
             $scope.loading = false;
-            window.location.href = "/page/" + $scope.page.url;
+            window.location.href = "/p/" + $scope.page.url;
         });
     };
 }]);
 
 module.exports = {
     name: "Edit Page",
-    url: "/manage/page/:pageUrl",
-    parent: "/manage/page",
+    url: "/p/:pageUrl/edit",
+    parent: "/manage",
     templateUrl: "/www/templates/page/pageEdit.html",
     controller: "pageEditController"
 };

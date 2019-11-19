@@ -1,39 +1,32 @@
-var app = angular.module("confluente");
-app.controller("pageViewController", ["$rootScope", "$scope", "$routeParams", function ($rootScope, $scope, $routeParams) {
-    $scope.loading = true;
-    $scope.templateUrl = getTemplateUrl($routeParams);
+var app = angular.module('confluente');
 
-    var fallbackUrl = "/www/404.html";
+app.controller('pageViewController', ['$rootScope', '$scope', '$routeParams',
+    function($rootScope, $scope, $routeParams) {
 
-    $scope.$on("$includeContentLoaded", function (e, src) {
-        //Boo yah!
-        $rootScope.title = getPageTitle(src);
-    });
+        // set the variable to report that the page is loading
+        $scope.loading = true;
 
-    $scope.$on("$includeContentError", function (e, src) {
-        //Boo nah?
-        if ($scope.templateUrl === fallbackUrl) {
-            //404 page could not be found?
-            //Something very bad is going on
-            return;
-        }
-        $scope.templateUrl = fallbackUrl;
-    });
+        // set the content url
+        $scope.contentUrl = getPageUrl($routeParams);
+
+        $scope.$on('$includeContentError', function(e, src) {
+            $scope.contentUrl = fallbackUrl;
+        });
 
 }]);
 
-function getTemplateUrl(routeParams) {
-    return "/www/pages/" + routeParams.url + ".html";
+// define the path to the 404 page
+var fallbackUrl = '/www/404.html';
+
+function getPageUrl(routeParams) {
+    /* Returns the location of the HTML file */
+    return '/www/pages/' + routeParams.url + '.html';
 }
 
-function getPageTitle(url) {
-    var title = url.split("/").slice(-1)[0].split(".")[0];
-    return title.charAt(0).toUpperCase() + title.substr(1);
-}
 
 module.exports = {
-    url: "/:url*",
-    parent: "/",
-    template:"<div class='container' ng-include='templateUrl'></div>",
-    controller:"pageViewController"
+    url:          '/:url*',
+    parent:       '/',
+    templateUrl:  '/www/templates/default.html',
+    controller:   'pageViewController'
 };
