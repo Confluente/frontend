@@ -1,6 +1,8 @@
 <div class="pull-right">
-    <a class="btn btn-default" href="manage/create/user" ng-if="user.isAdmin">+ User</a>
-    <!--<a class="btn btn-default" href="/group/create" ng-if="user.isAdmin">+ Group</a>-->
+    <div class="btn-group">
+        <a class="btn btn-default" href="manage/create/user" ng-if="user.isAdmin">+ User</a>
+        <a class="btn btn-default" href="manage/create/group" ng-if="user.isAdmin">+ Group</a>
+    </div>
     <a class="btn btn-default" href="manage/create/activity" ng-if="user.canOrganize">+ Activity</a>
     <a class="btn btn-default" href="manage/create/page" ng-if="user.isAdmin">+ Page</a>
 </div>
@@ -61,7 +63,7 @@
                         <td><a ng-href="/user/{{user.id}}">{{user.displayName}}</a></td>
                         <td>{{user.email}}</td>
                         <td>{{user.isAdmin}}</td>
-                        <td><a ng-href="/manage/user/{{user.id}}">Edit</a></td>
+                        <td><a ng-href="/manage/user/edit/{{user.id}}">Edit</a>  <a ng-href="/manage/user/delete/{{user.id}}">Delete</a></td>
                     </tr>
                     </tbody>
 
@@ -89,7 +91,7 @@
                         <td><a ng-href="/group/{{group.id}}">{{group.fullName}} ({{group.displayName}})</a></td>
                         <td>{{group.email}}</td>
                         <td>{{group.canOrganize}}</td>
-                        <td><a ng-href="/manage/group/{{group.id}}">Edit</a></td>
+                        <td><a ng-href="/manage/group/edit/{{group.id}}">Edit</a> <a ng-href="/manage/group/delete/{{group.id}}">Delete</a></td>
                     </tr>
                     </tbody>
 
