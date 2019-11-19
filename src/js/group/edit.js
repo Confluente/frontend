@@ -21,7 +21,7 @@ app.controller("groupEditController", ["$scope", "$routeParams", "groups", funct
 
 module.exports = {
     name: "Edit Group",
-    url: "/manage/group/edit/:groupId",
+    url: "/manage/group/:groupId/edit",
     parent: "/manage/",
     templateUrl: "/www/templates/group/groupEdit.html",
     iconUrl: "/img/home-outline.png",

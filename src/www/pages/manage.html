@@ -1,137 +1,141 @@
-<div class="pull-right">
-    <div class="btn-group">
-        <a class="btn btn-default" href="manage/create/user" ng-if="user.isAdmin">+ User</a>
-        <a class="btn btn-default" href="manage/create/group" ng-if="user.isAdmin">+ Group</a>
+<div class="container">
+
+    <div class="pull-right">
+        <div class="btn-group">
+            <a class="btn btn-default" href="manage/create/user" ng-if="user.isAdmin">+ User</a>
+            <a class="btn btn-default" href="manage/create/group" ng-if="user.isAdmin">+ Group</a>
+        </div>
+        <a class="btn btn-default" href="manage/create/activity" ng-if="user.canOrganize">+ Activity</a>
+        <a class="btn btn-default" href="manage/create/page" ng-if="user.isAdmin">+ Page</a>
     </div>
-    <a class="btn btn-default" href="manage/create/activity" ng-if="user.canOrganize">+ Activity</a>
-    <a class="btn btn-default" href="manage/create/page" ng-if="user.isAdmin">+ Page</a>
-</div>
 
-<h1>Management Dashboard</h1>
-<div ng-controller="manageController">
-    <uib-tabset active="active">
+    <h1>Management Dashboard</h1>
+    <div ng-controller="manageController">
+        <uib-tabset active="active">
 
-        <uib-tab index="1" heading="Activities">
-            <div class="table-responsive">
-                <table class="table table-striped">
+            <uib-tab index="1" heading="Activities">
+                <div class="table-responsive">
+                    <table class="table table-striped">
 
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Url</th>
-                        <th>Title</th>
-                        <th>Date</th>
-                        <th>Organizer</th>
-                        <th>Approved</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Url</th>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Organizer</th>
+                            <th>Approved</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr ng-repeat="activity in activities">
-                        <th>{{activity.id}}</th>
-                        <td><a ng-href="/activities/{{activity.id}}">/activities/{{activity.id}}</a></td>
-                        <td>{{activity.name}}</td>
-                        <td>{{activity.date | date:'yyyy-MM-dd'}}</td>
-                        <td>{{activity.Organizer.displayName}}</td>
-                        <td>{{activity.approved}}</td>
-                        <td><a ng-href="/manage/activities/{{activity.id}}">Edit</a></td>
-                    </tr>
-                    </tbody>
+                        <tbody>
+                        <tr ng-repeat="activity in activities">
+                            <th>{{activity.id}}</th>
+                            <td><a ng-href="/activities/{{activity.id}}">/activities/{{activity.id}}</a></td>
+                            <td>{{activity.name}}</td>
+                            <td>{{activity.date | date:'yyyy-MM-dd'}}</td>
+                            <td>{{activity.Organizer.displayName}}</td>
+                            <td>{{activity.approved}}</td>
+                            <td><a ng-href="/manage/activities/{{activity.id}}">Edit</a></td>
+                        </tr>
+                        </tbody>
 
-                </table>
-            </div>
-        </uib-tab>
+                    </table>
+                </div>
+            </uib-tab>
 
-        <uib-tab index="2" heading="Users">
-            <div class="table-responsive">
-                <table class="table table-striped">
+            <uib-tab index="2" heading="Users">
+                <div class="table-responsive">
+                    <table class="table table-striped">
 
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Admin</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Admin</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr ng-repeat="user in users">
-                        <th>{{user.id}}</th>
-                        <td><a ng-href="/user/{{user.id}}">{{user.displayName}}</a></td>
-                        <td>{{user.email}}</td>
-                        <td>{{user.isAdmin}}</td>
-                        <td><a ng-href="/manage/user/edit/{{user.id}}">Edit</a>  <a ng-href="/manage/user/delete/{{user.id}}">Delete</a></td>
-                    </tr>
-                    </tbody>
+                        <tbody>
+                        <tr ng-repeat="user in users">
+                            <th>{{user.id}}</th>
+                            <td><a ng-href="/user/{{user.id}}">{{user.displayName}}</a></td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.isAdmin}}</td>
+                            <td><a ng-href="/manage/user/edit/{{user.id}}">Edit</a>  <a ng-href="/manage/user/delete/{{user.id}}">Delete</a></td>
+                        </tr>
+                        </tbody>
 
-                </table>
-            </div>
-        </uib-tab>
+                    </table>
+                </div>
+            </uib-tab>
 
-        <uib-tab index="3" heading="Groups">
-            <div class="table-responsive">
-                <table class="table table-striped">
+            <uib-tab index="3" heading="Groups">
+                <div class="table-responsive">
+                    <table class="table table-striped">
 
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Can organize</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Can organize</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr ng-repeat="group in groups">
-                        <th>{{group.id}}</th>
-                        <td><a ng-href="/group/{{group.id}}">{{group.fullName}} ({{group.displayName}})</a></td>
-                        <td>{{group.email}}</td>
-                        <td>{{group.canOrganize}}</td>
-                        <td><a ng-href="/manage/group/edit/{{group.id}}">Edit</a> <a ng-href="/manage/group/delete/{{group.id}}">Delete</a></td>
-                    </tr>
-                    </tbody>
+                        <tbody>
+                        <tr ng-repeat="group in groups">
+                            <th>{{group.id}}</th>
+                            <td><a ng-href="/group/{{group.id}}">{{group.fullName}} ({{group.displayName}})</a></td>
+                            <td>{{group.email}}</td>
+                            <td>{{group.canOrganize}}</td>
+                            <td><a ng-href="/manage/group/{{group.id}}/edit">Edit</a> <a ng-href="/manage/group/{{group.id}}/delete">Delete</a></td>
+                        </tr>
+                        </tbody>
 
-                </table>
-            </div>
-        </uib-tab>
+                    </table>
+                </div>
+            </uib-tab>
 
-        <uib-tab index="4" heading="Pages">
-            <div class="table-responsive">
-                <table class="table table-striped">
+            <uib-tab index="4" heading="Pages">
+                <div class="table-responsive">
+                    <table class="table table-striped">
 
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Url</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Url</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                      <tr class="table-row" ng-repeat="page in pages">
-                          <td>
-                              {{page.id}}
-                          </td>
-                          <th>
-                            {{page.title}}
-                          </th>
-                          <td>
-                              <a ng-href="{{page.url}}">/p/{{page.url}}</a>
-                          </td>
-                          <td>
-                              <a ng-href="/p/{{page.url}}/edit">Edit</a>
-                          </td>
-                      </tr>
-                      </tbody>
+                        <tbody>
+                          <tr class="table-row" ng-repeat="page in pages">
+                              <td>
+                                  {{page.id}}
+                              </td>
+                              <th>
+                                {{page.title}}
+                              </th>
+                              <td>
+                                  <a ng-href="/p/{{page.url}}">/p/{{page.url}}</a>
+                              </td>
+                              <td>
+                                  <a ng-href="/p/{{page.url}}/edit">Edit</a>
+                              </td>
+                          </tr>
+                          </tbody>
 
-                  </table>
-              </div>
-        </uib-tab>
+                      </table>
+                  </div>
+            </uib-tab>
 
-    </uib-tabset>
+        </uib-tabset>
+    </div>
+
 </div>

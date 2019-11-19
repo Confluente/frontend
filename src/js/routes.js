@@ -21,7 +21,11 @@ var routes = [
     require("./page/create"),
     require("./page/edit"),
     require("./manage"),
+
+    // Link all /p/ URLs to database pages
     require("./page/page"),
+
+    // Link other URLs to HTML pages
     require("./page/view"),
 ];
 

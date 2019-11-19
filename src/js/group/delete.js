@@ -19,7 +19,7 @@ app.controller("groupDeleteController", ["$scope", "$routeParams", "groups", fun
 
 module.exports = {
     name: "Delete Group",
-    url: "/manage/group/delete/:groupId",
+    url: "/manage/group/:groupId/delete",
     parent: "/manage/",
     templateUrl: "/www/templates/group/groupDelete.html",
     iconUrl: "/img/home-outline.png",

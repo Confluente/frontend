@@ -18,8 +18,8 @@ app.controller("groupCreateController", ["$scope", "groups", function ($scope, g
 
 module.exports = {
     name: "New Group",
-    url: "/manage/group/create",
-    parent: "/manage/group/",
+    url: "/manage/create/group",
+    parent: "/manage",
     templateUrl: "/www/templates/group/groupCreate.html",
     controller: "groupCreateController"
 };
