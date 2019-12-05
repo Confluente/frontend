@@ -14,8 +14,6 @@
 
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Url</th>
                         <th>Title</th>
                         <th>Date</th>
                         <th>Organizer</th>
@@ -26,9 +24,7 @@
 
                     <tbody>
                     <tr ng-repeat="activity in activities">
-                        <th>{{activity.id}}</th>
-                        <td><a ng-href="/activities/{{activity.id}}">/activities/{{activity.id}}</a></td>
-                        <td>{{activity.name}}</td>
+                        <td><a ng-href="/activities/{{activity.id}}">{{activity.name}}</a></td>
                         <td>{{activity.date | date:'yyyy-MM-dd'}}</td>
                         <td>{{activity.Organizer.displayName}}</td>
                         <td>{{activity.approved}}</td>
@@ -46,7 +42,6 @@
 
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Admin</th>
@@ -56,7 +51,6 @@
 
                     <tbody>
                     <tr ng-repeat="user in users">
-                        <th>{{user.id}}</th>
                         <td><a ng-href="/user/{{user.id}}">{{user.displayName}}</a></td>
                         <td>{{user.email}}</td>
                         <td ng-if="user.isAdmin"><i class="fa fa-check"></i></td><td ng-if="!user.isAdmin">-</td>
@@ -74,7 +68,6 @@
 
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Can organize</th>
@@ -84,7 +77,6 @@
 
                     <tbody>
                     <tr ng-repeat="group in groups">
-                        <th>{{group.id}}</th>
                         <td><a ng-href="/group/{{group.id}}">{{group.fullName}} ({{group.displayName}})</a></td>
                         <td>{{group.email}}</td>
                         <td>{{group.canOrganize}}</td>
