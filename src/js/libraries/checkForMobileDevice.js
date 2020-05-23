@@ -1,3 +1,5 @@
+/* This function checks whether the user is viewing the page on a mobile device or not.
+*  It can be called by simply calling window.mobileCheck */
 window.mobileCheck = function () {
     let check = false;
     (function (a) {
