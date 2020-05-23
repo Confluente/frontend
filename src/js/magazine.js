@@ -12,7 +12,8 @@ app.controller("magazineController", ["$scope", function ($scope) {
     $("#magazine").turn({
         width: 1124,
         height: 800,
-        autoCenter: true
+        autoCenter: true,
+        display: "double"
     });
 }]);
 
