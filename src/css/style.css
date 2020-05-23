@@ -185,6 +185,25 @@ label {
     align-items: center;
 }
 
+/* -- Mobile and Desktop show */
+.desktopshow {
+    display: block;
+}
+
+.mobileshow {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .mobileshow {
+        display: block;
+    }
+
+    .desktopshow {
+        display: none;
+    }
+}
+
 /* -- Text: H.S.A. Confluente */
 .hsa {
     font-family: "Rounded Elegance", sans-serif;
@@ -588,24 +607,6 @@ input[type="checkbox"], input[type="radio"] {
 .board-content ul {
     font-size: 20px;
     list-style-type: none;
-}
-
-.desktopshow {
-    display: block;
-}
-
-.mobileshow {
-    display: none;
-}
-
-@media screen and (max-width: 992px) {
-    .mobileshow {
-        display: block;
-    }
-
-    .desktopshow {
-        display: none;
-    }
 }
 
 
