@@ -37,6 +37,12 @@ app.controller("homePageController", ["$scope", "$routeParams", function ($scope
     $window.on('scroll resize', check_if_in_view);
     $window.trigger('scroll');
 
+    $("#flipbook").turn({
+        width: 420,
+        height: 300,
+        autoCenter: true
+    });
+
 }]);
 
 module.exports = {
