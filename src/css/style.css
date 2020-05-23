@@ -590,6 +590,10 @@ input[type="checkbox"], input[type="radio"] {
     list-style-type: none;
 }
 
+.desktopshow {
+    display: block;
+}
+
 .mobileshow {
     display: none;
 }
@@ -597,6 +601,10 @@ input[type="checkbox"], input[type="radio"] {
 @media screen and (max-width: 992px) {
     .mobileshow {
         display: block;
+    }
+
+    .desktopshow {
+        display: none;
     }
 }
 
