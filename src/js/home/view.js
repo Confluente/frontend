@@ -37,7 +37,8 @@ app.controller("homePageController", ["$scope", "$routeParams", function ($scope
     $window.on('scroll resize', check_if_in_view);
     $window.trigger('scroll');
 
-    $("#flipbook").turn({
+    // initialize turn js magazine
+    $("#magazine").turn({
         width: 420,
         height: 300,
         autoCenter: true
