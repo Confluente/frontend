@@ -16,7 +16,7 @@ app.controller("magazineController", ["$scope", function ($scope) {
             autCenter: true,
             display: "single",
             acceleration: false
-        })
+        });
     } else {
         $("#magazineDesk").turn({
             width: 1110,
