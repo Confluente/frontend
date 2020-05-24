@@ -11,17 +11,19 @@ app.controller("magazineController", ["$scope", function ($scope) {
     // initialize turn js magazine
     if (window.mobileCheck()) {
         $("#magazineMob").turn({
-            width: 562,
-            height: 800,
+            width: 563,
+            height: 792,
             autCenter: true,
-            display: "single"
+            display: "single",
+            acceleration: false
         })
     } else {
         $("#magazineDesk").turn({
-            width: 1124,
-            height: 800,
+            width: 1126,
+            height: 792,
             autoCenter: true,
-            display: "double"
+            display: "double",
+            acceleration: false
         });
     }
 
