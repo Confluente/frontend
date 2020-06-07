@@ -8,25 +8,26 @@ app.controller("magazineController", ["$scope", function ($scope) {
     // therefore, scroll to top at start
     window.scrollTo(0, 0);
 
-    // initialize turn js magazine
-    if (window.mobileCheck()) {
-        $("#magazineMob").turn({
-            width: 560,
-            height: 792,
-            autCenter: true,
-            display: "single",
-            acceleration: false
-        });
+    var window_width = $("#magazine").parent().width();
+    var window_height = $("#magazine").parent().height();
+    var display = "";
+    var width = 0;
+
+    if (window_width >= 940) {
+        display = "double";
+        width = window_height * 1.4;
     } else {
-        $("#magazineDesk").turn({
-            width: 1110,
-            height: 792,
-            autoCenter: true,
-            display: "double",
-            acceleration: false
-        });
+        display = "single";
+        width = window_height * 0.7;
     }
 
+    $("#magazine").turn({
+        width: width,
+        height: window_height,
+        autoCenter: false,
+        display: display,
+        acceleration: false
+    });
 
 }]);
 
