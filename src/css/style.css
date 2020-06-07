@@ -433,8 +433,7 @@ input[type="checkbox"], input[type="radio"] {
 
 /* - Stats */
 .info_graphic {
-    font-size: 3.6rem;
-    font-weight: 600;
+    font-size: 3rem;
     margin: 0;
     line-height: 1.2;
 }
