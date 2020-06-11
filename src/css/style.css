@@ -172,7 +172,7 @@ h5, .h5, h6, .h6 { margin-top: 0.7rem; margin-bottom: 0.1rem }
 /* FORMS -------------------------------------------------------------------- */
 
 /* Checkbox and radio fix */
-.form-horizontal .checkbox { min-height: 0; }
+.form-horizontal .checkbox, .form-horizontal .radio { min-height: 0; }
 input[type="checkbox"], input[type="radio"] { margin-top: 7px }
 .radio:first-of-type, .checkbox:first-of-type { margin-top: 0 }
 
