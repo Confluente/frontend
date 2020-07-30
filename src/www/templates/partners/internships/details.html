@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-6">
+            <ol class="breadcrumb small">
+                <li><a href="/partners/internships"><b>&lt; Back to internships</b></a></li>
+            </ol>
+        </div>
+
+        <div ng-if="isUserOrganizing || user.isAdmin" class="col-xs-6">
+            <ol class="breadcrumb small text-right">
+                <li><a ng-href="/manage/partners/internships/edit/{{internship.id}}"><b>Edit Internship</b></a></li>
+            </ol>
+        </div>
+
+    </div>
+
+    <section class="row">
+
+        <div class="col-xs-12">
+
+            <h1>{{internship.title}} <small>at {{internship.companyName}}</small></h1>
+
+            <ul class="breadcrumb" id="activity-details">
+                <li ng-if="internship.educationLevel">{{internship.educationLevel}}</li>
+                <li ng-if="internship.contactEmail"><a href="mailto:{{internship.contactEmail}}">{{internship.contactEmail}}</a></li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <div class="clearfix"></div>
+
+    <hr>
+
+    <section class="row">
+
+        <div class="col-xs-12 col-md-8 col-lg-6">
+
+            <div ng-bind-html="html_desc"></div>
+
+            <div class="block">
+                <a href="{{internship.link}}" class="btn btn-primary">
+                    <i class="fa fa-external-link" aria-hidden="true"></i> Learn more</a>
+            </div>
+
+        </div>
+
+    </section>
+</div>
