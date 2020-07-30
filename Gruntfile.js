@@ -1,7 +1,9 @@
 module.exports = function (grunt) {
 
     var webpack = require('webpack');
-    const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+    const TerserPlugin = require('terser-webpack-plugin');
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -22,18 +24,14 @@ module.exports = function (grunt) {
             build: {
                 context: __dirname + '/src/js',
                 entry: './index.js',
-                plugins: [
-                    new UglifyJsPlugin({
-                        cache: true,
-                        parallel: true,
-                        uglifyOptions: {
-                            compress: false,
-                            ecma: 6,
-                            mangle: true
-                        },
-                        sourceMap: true
-                    })
-                ],
+                optimization: {
+                    minimize: true,
+                    minimizer: [new TerserPlugin({
+                        terserOptions: {
+                            ecma: 6
+                        }
+                    })],
+                },
                 output: {
                     path: __dirname + '/build/js',
                     filename: 'bundle.js'
@@ -74,6 +72,9 @@ module.exports = function (grunt) {
         },
         jshint: {
             files: ['src/js/*.js', '!src/js/bundle.js', 'src/js/app/**.js'],
+            options: {
+                'esversion': 6,
+            }
         },
         eslint: {
             all: ['<%= jshint.files %>'],
@@ -93,8 +94,6 @@ module.exports = function (grunt) {
         }
     });
 
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
